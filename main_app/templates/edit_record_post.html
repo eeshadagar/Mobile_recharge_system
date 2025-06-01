@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block body %}
+<div class="jumbotron">
+    <h1>Recharge Management</h1>
+    <hr>
+    <h2>Update Recharge</h2>
+    <form action="details/{{record.id}}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Mobile Number</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="number" value="{{record.number}}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Operator</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="operator">
+                  <option>Jio</option>
+                  <option>BSNL</option>
+                  <option>Airtel</option>
+                  <option>Vodafone</option>
+                  <option>Idea</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% endblock body %}

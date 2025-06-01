@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block body %}
+<h1>Recharge Report</h1>
+<hr>
+<h2>Prepaid Recharges</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Number</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Operator</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if detail %}
+      {% for deet in detail %}
+        <tr>
+          <td>{{deet.number}}</td>
+          <td>{{deet.amount}}</td>
+          <td>{{deet.operator}}</td>
+          <td><a href="edit/{{deet.id}}">Edit</a> | <a href="delete/{{deet.id}}">Delete</a></td>
+        </tr>
+      {% endfor %}
+      <br>
+      <p><a style="color: black;" href="{% url 'prepaid:recharge' %}"><b>Click here</b></a> to add another recharge</p><br>
+    {% else %}
+        <tr>
+          <td>No records available, <a style="color: black;" href="{% url 'prepaid:recharge' %}"><b>Click here</b></a> to add a recharge</td>
+        </tr>
+    {% endif %}
+  </tbody>
+</table>
+<br><br>
+<h2>Postpaid recharges</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Number</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Operator</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody id="post_table">
+  {% if postdeet %}
+    {% for deet in postdeet %}
+      <tr id = 'post_row'>
+        <td>{{deet.number}}</td>
+        <td id ='amount{{deet.id}}'></td>
+        <td>{{deet.operator}}</td>
+        <td><a href="editt/{{deet.id}}">Edit</a> | <a href="deletee/{{deet.id}}">Delete</a></td>
+      </tr>
+    {% endfor %}
+    {% for deet in amount %}
+      <tr >
+        <td id = "value{{deet.id}}">{{deet.amount}}</td>
+      </tr>
+    {% endfor %}
+    <p><a style="color: black;" href="{% url 'postpaid:postrecharge' %}"><b>Click here</b></a> to add another recharge</p><br>
+  {% else %}
+  <tr>
+    <td>No records available, <a style="color: black;" href="{% url 'postpaid:postrecharge' %}"><b>Click here</b></a> to add a recharge</td>
+  </tr>
+  {% endif %}
+  </tbody>
+</table>
+{% endblock body %}

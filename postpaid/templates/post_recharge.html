@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block body %}
+<div class="jumbotron">
+    <h1>Recharge Management</h1>
+    <hr>
+    <h2>Add new Recharge</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">View Plans</button>
+    </form>
+</div>
+{% endblock body %}

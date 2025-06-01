@@ -1,0 +1,21 @@
+{% extends 'base.html' %}{% block body %}
+<h1>Recharge Management</h1>
+<hr>
+<h2>All Plans</h2><br>
+<div style="display: flex; width: 120em;" >
+<li class="list-group-item" style="width: 6em;">
+    {% for i in plans.rs%}
+    <a href="{% url 'payment:paymentpost' %}">
+        {{i}} <br>
+    </a>
+    {% endfor %}
+</li>
+<li class="list-group-item" style="width: 115em;">
+    {% for j in plans.des %}
+        {{j}}
+        <br>
+    {% endfor %}
+</li>
+
+</div>
+{% endblock body %}

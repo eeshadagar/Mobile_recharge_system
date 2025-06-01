@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block body %}
+<div class="jumbotron">
+    <h1>Mobile Recharge System Dashboard</h1>
+    <hr>
+    <ul class="list-group">
+        <li class="list-group-item"><a style="color: black;" href="{% url 'prepaid:recharge' %}">Prepaid Recharge</a></li>
+        <li class="list-group-item"><a style="color: black;" href="{% url 'postpaid:postrecharge' %}">Postpaid Recharge</a></li>
+        <li class="list-group-item"><a style="color: black;" href="{% url 'main_app:details' %}">Recharge List</a></li>
+      </ul>
+</div>
+{% endblock body %}
